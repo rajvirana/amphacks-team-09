@@ -1,0 +1,47 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    Rad Reads
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+
+{% block scripts %}
+{{super()}}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row" style="margin-top:150px;">
+    <div class="col"></div>
+    <div class="col-4 align-items-center">
+      <div class="row align-items-center justify-content-around" >
+          <img src="{{ url_for('static', filename='assets/study.png') }}" alt="book_logo" height=75px width=75px>
+          <h1>Rad Reads</h1>
+      </div>
+        <div class="line-break"></div>
+        <div class="row justify-content-center">{{message}}</div>
+
+        <div class="row justify-content-center"><a class="btn btn-primary" href="{{url_for('login')}}" role="button">Log In</a></div>
+        <div class="row justify-content-center"><a class="btn btn-primary" href="{{url_for('signup')}}" role="button">Sign Up</a></div>
+    </div>
+
+    <div class="col"></div>
+  </div>
+</div>
+
+<div class="fixed-bottom" id="green-gradient"></div>
+
+
+
+{%endblock%}
+

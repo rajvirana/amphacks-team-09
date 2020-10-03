@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block navbar %}
+    <nav class="navbar navbar-light">
+  <a class="navbar-brand" href={{url_for('search')}} >
+    <img src="{{ url_for('static', filename='assets/study.png') }}" width="30" height="30" class="d-inline-block align-top" alt="book-logo">
+    Rad Reads
+  </a>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row align-items-center" style="margin-top:50px;">
+
+
+        <div class="col"></div>
+
+        <div class="col-8 align-items-center">
+
+            <div class="align-items-left">{% block custom_title %} {% endblock %}</div>
+            <div class="line-break"></div>
+            {% block custom_content %}  {% endblock %}
+
+
+        </div>
+
+
+
+        <div class="col"></div>
+
+    </div>
+
+</div>
+
+{% block footer %}{% endblock %}
+
+{% endblock %}
+
+
+
+

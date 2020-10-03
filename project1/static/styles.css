@@ -1,0 +1,136 @@
+
+* {
+ font-family: 'Lora', Serif;
+}
+
+h1{
+    font-size: 36pt;
+    font-weight: 700;
+}
+
+h3{
+    font-size: 16pt;
+    font-weight: 700;
+}
+
+h5{
+    font-size: 14pt;
+    font-weight:700;
+}
+
+h6{
+    font-size: 12pt;
+}
+
+span{
+    font-size:11pt;
+}
+
+#spacer{
+    height:150px;
+}
+.line-break{
+    color: #F87C68;
+    height: 20px;
+    border-bottom: 4px solid;
+    width: 100%;
+    margin-bottom:25px;
+}
+
+.btn-primary{
+    border:none;
+    background-color:#344779;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#green-gradient{
+    background-image: linear-gradient(#FFFFFF, #67B586);
+    height:140px;
+    width:100%;
+}
+
+.navbar{
+    background-color:#FFFFFF;
+    border-bottom: 3px solid #344779;
+}
+
+.search-button{
+    width:100%;
+    margin:0;
+}
+
+.search-query{
+    font-style: italic;
+    text-decoration:underline;
+    font-weight:400;
+    margin:0;
+}
+
+.result-box{
+    min-height: 50px;
+    width: 100%;
+    border: 1px solid #67B586;
+    border-radius:5px;
+    margin-top:15px;
+    padding:20px;
+
+}
+
+.centered-img{
+    display:block;
+    margin:auto;
+    width:75px;
+    height:75px;
+}
+
+.chevron{
+    width:20px;
+    height:20px;
+}
+
+a{
+    color:#212529;
+}
+
+.vertical_bottom {
+    display: flex;
+    align-items: bottom;
+}
+
+#goodreads-widget {
+    font-family: georgia, serif;
+    padding: 18px 0;
+    width:565px;
+}
+
+#goodreads-widget h1 {
+    font-weight:normal;
+    font-size: 16px;
+    border-bottom: 1px solid #BBB596;
+    margin-bottom: 0;
+ }
+
+#goodreads-widget a {
+    text-decoration: none;
+    color:#660;
+     }
+  iframe{
+    background-color: #fff;
+  }
+#goodreads-widget a:hover { text-decoration: underline; }
+#goodreads-widget a:active {
+    color:#660;
+  }
+
+#gr_footer {
+    width: 100%;
+    border-top: 1px solid #BBB596;
+    text-align: right;
+    }
+#goodreads-widget .gr_branding{
+    color: #382110;
+    font-size: 11px;
+    text-decoration: none;
+    font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;
+}
