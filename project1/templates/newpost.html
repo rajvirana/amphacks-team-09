@@ -1,0 +1,54 @@
+{% extends "basicpage.html" %}
+{% block navbar %}
+<nav class="navbar navbar-light">
+    <a class="navbar-brand" href="{{url_for('my_matches')}}">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" width="30" height="30"
+            class="d-inline-block align-top" alt="logo">
+        Friends for Friends
+    </a>
+    <a class="navbar-link" href="{{url_for('my_matches')}}">
+        My Matches
+    </a>
+    <a class="navbar-link" href="{{url_for('new_post')}}">
+        New Post
+    </a>
+</nav>
+{% endblock %}
+
+{% block custom_title %} <h1> New Post</h1> {% endblock %}
+
+{% block custom_content %}
+
+<h4>What would you like to spend time doing with a friend? Make a posting stating what you would like to do, like teach piano, teach cooking, or anything you can think of! </h4>
+
+
+<form action="{{ url_for('submit_post') }}" method="post">
+    <div class="form-group">
+        <input class="form-control" name="title" placeholder="What skill are you offering?">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" id="description" name="description" placeholder="Please elaborate on your skill"
+            row="5"></textarea>
+        <!-- <input class="form-control" name="description" placeholder="Description"> -->
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="availability" placeholder="Availability: Days of the Week">
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="hours" placeholder="Availability: Hours of the Week">
+    </div>
+
+    <div class="form-group align-items-center">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
+
+
+{% endblock %}
+
+{% block footer %}
+
+<div class="fixed-bottom" id="green-gradient"></div>
+
+{% endblock %}

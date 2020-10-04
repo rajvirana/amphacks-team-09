@@ -6,9 +6,7 @@ from flask_bootstrap import Bootstrap
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from random import randrange
-
 import requests
-
 
 
 app = Flask(__name__)
@@ -16,10 +14,8 @@ Bootstrap(app)
 
 # Check for environment variable
 if not os.getenv("DATABASE_URL"):
-    raise RuntimeError("DB URL is not set")
+    raise RuntimeError("DATABASE_URL is not set")
 
-#if not os.getenv("KEY"):
-#    raise RuntimeError("API is not set")
 
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
@@ -38,9 +34,6 @@ def random():
     print(randrange(1000))
     session["number"] = int(randrange(0,1000))
     return None
-
-
-
 
 if __name__ == '__main__':
     app.run()
@@ -72,41 +65,31 @@ def login_request():
         session["firstName"] = firstName
         session["lastName"] = lastName
         session["user_id"] = person[0][1]
-
-        # want to find all postings with logged in user as the author_id
-        # want to join all
-        results = db.execute("SELECT * FROM postings WHERE (author_id = :author_id)",
-                   {"author_id": 742}).fetchall()
-
-
-        print(results)
+        results = db.execute(
+            "SELECT title, first_name, last_name FROM postings JOIN client ON client.client_id = postings.user_id WHERE author_id=742",
+            {"user_id": session["user_id"]}).fetchall()
         return render_template("search.html", results=results)
+
     return render_template("error.html", message="incorrect login info")
 
-@app.route("/login_request", methods=["POST"])
+
+@app.route("/mymatches")
 def my_matches():
-
-    if db.execute("SELECT * FROM volunteer WHERE (first_name = :firstName) AND (last_name = :lastName)", {"firstName": firstName, "lastName": lastName}).rowcount==1:
-        person = db.execute("SELECT * FROM volunteer WHERE (first_name = :firstName) AND (last_name = :lastName)",
-                   {"firstName": firstName, "lastName": lastName}).fetchall()
-
-
-        print(person[0][1])
-        results = db.execute("SELECT * FROM postings WHERE (author_id = :author_id)",
-                   {"author_id": person[0][1]}).fetchall()
-        print(results)
-        return render_template("search.html")
-    return render_template("error.html", message="incorrect login info")
-
-
+    results = db.execute(
+        "SELECT title, first_name, last_name FROM postings JOIN client ON client.client_id = postings.user_id WHERE author_id=742",
+        {"user_id": session["user_id"]}).fetchall()
+    return render_template("search.html", results=results)
 
 @app.route("/search")
 def search():
-    return render_template("search.html")
-
+    return render_template("search.html", results=results)
 
 @app.route("/newpost")
 def new_post():
+    return render_template("newpost.html")
+
+@app.route("/newpost")
+def submit_post():
     return render_template("newpost.html")
 
 @app.route("/search")
