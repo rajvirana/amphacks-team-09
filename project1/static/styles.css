@@ -76,7 +76,6 @@ span{
     right: 150px;
     width: 100px;
 }
-
 #green-gradient{
     background-image: linear-gradient(#FFFFFF, #67B586);
     height:140px;
@@ -157,30 +156,8 @@ a{
     align-items: bottom;
 }
 
-#goodreads-widget {
-    font-family: georgia, serif;
-    padding: 18px 0;
-    width:565px;
-}
 
-#goodreads-widget h1 {
-    font-weight:normal;
-    font-size: 16px;
-    border-bottom: 1px solid #BBB596;
-    margin-bottom: 0;
- }
 
-#goodreads-widget a {
-    text-decoration: none;
-    color:#660;
-     }
-  iframe{
-    background-color: #fff;
-  }
-#goodreads-widget a:hover { text-decoration: underline; }
-#goodreads-widget a:active {
-    color:#660;
-  }
 
 #gr_footer {
     width: 100%;

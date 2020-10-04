@@ -6,9 +6,7 @@ from flask_bootstrap import Bootstrap
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from random import randrange
-
 import requests
-
 
 
 app = Flask(__name__)
@@ -16,16 +14,9 @@ Bootstrap(app)
 
 # Check for environment variable
 if not os.getenv("DATABASE_URL"):
-<<<<<<< HEAD
-    raise RuntimeError("DATABASE_URL is not set")
-# if not os.getenv("KEY"):
-#     raise RuntimeError("Goodreads API is not set")
-=======
-    raise RuntimeError("DB URL is not set")
 
-#if not os.getenv("KEY"):
-#    raise RuntimeError("API is not set")
->>>>>>> 01a11caaa5faa099654ecba58e3212ccc22c8d1c
+    raise RuntimeError("DATABASE_URL is not set")
+
 
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
@@ -44,9 +35,6 @@ def random():
     print(randrange(1000))
     session["number"] = int(randrange(0,1000))
     return None
-
-
-
 
 if __name__ == '__main__':
     app.run()
@@ -100,6 +88,10 @@ def search():
 @app.route("/newpost")
 def new_post():
     return render_template("newpost.html")
+
+@app.route("/newpost")
+def submit_post():
+    return render_template("success.html")
 
 @app.route("/search")
 def confirm():
