@@ -72,6 +72,16 @@ span{
     margin-top:10px;
     margin-bottom:10px;
     position: absolute;
+    right: 150px;
+    width: 100px;
+}
+
+.login-btn {
+    border:none;
+    background-color:#344779;
+    margin-top:10px;
+    margin-bottom:10px;
+    position: absolute;
     top: 350px;
     right: 150px;
     width: 100px;
