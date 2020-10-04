@@ -16,16 +16,10 @@ Bootstrap(app)
 
 # Check for environment variable
 if not os.getenv("DATABASE_URL"):
-<<<<<<< HEAD
-    raise RuntimeError("DATABASE_URL is not set")
-# if not os.getenv("KEY"):
-#     raise RuntimeError("Goodreads API is not set")
-=======
     raise RuntimeError("DB URL is not set")
 
 #if not os.getenv("KEY"):
 #    raise RuntimeError("API is not set")
->>>>>>> 01a11caaa5faa099654ecba58e3212ccc22c8d1c
 
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
