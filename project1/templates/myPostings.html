@@ -20,12 +20,12 @@
 </nav>
 {% endblock %}
 
-{% block custom_title %} <h2> My Matches </h2> {% endblock %}
+{% block custom_title %} <h2> My Postings </h2> {% endblock %}
 
 
 {% block custom_content %}
 
-<h4>The people interested in your postings are listed below. Click confirm to set up a schedule with them! </h4>
+<h4>Here are your current active posts that young adults will see! </h4>
 
 {% for item in results %}
 
@@ -35,15 +35,11 @@
             <img src="{{ url_for('static', filename='assets/logo.png') }}" class="centered-img" alt="book-icon">
         </div>
         <div class="col-6">
-            <div>
-                <h3>{{ item[0] }}</h3>
-            </div>
-            <div class="col-6">
-                <h6>{{ item[1] }} {{ item[2] }}</h6>
-            </div>
+            <div><h3>{{ item[0] }}</h3></div>
+            <div><h6>{{ item[1] }}</h6></div>
         </div>
         <div class="col-2">
-            <div class="row"><a href="#"><button class="btn btn-primary">Confirm</button></a></div>
+            <div class="row"><a href="#"><button class="btn btn-primary">Edit</button></a></div>
         </div>
         <div class="col-2">
             <div class="row"><a href="#"><button class="btn btn-primary">Delete</button></a></div>

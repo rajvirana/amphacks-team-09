@@ -59,15 +59,22 @@ def login_request():
         return render_template("error.html", message="No such user with that id.")
 
     if db.execute("SELECT * FROM volunteer WHERE (first_name = :firstName) AND (last_name = :lastName)", {"firstName": firstName, "lastName": lastName}).rowcount==1:
+        #find the logged in senior in db to get their user info
         person = db.execute("SELECT * FROM volunteer WHERE (first_name = :firstName) AND (last_name = :lastName)",
                    {"firstName": firstName, "lastName": lastName}).fetchall()
         random()
+
+        #save their info in session
         session["firstName"] = firstName
         session["lastName"] = lastName
         session["user_id"] = person[0][1]
+        print(session["user_id"])
+
+        #get replies made to their posting (find all young people interested in their post)
         results = db.execute(
-            "SELECT title, first_name, last_name FROM postings JOIN client ON client.client_id = postings.user_id WHERE author_id=742",
-            {"user_id": session["user_id"]}).fetchall()
+            "SELECT title, first_name, last_name FROM postings JOIN client ON client.client_id = postings.user_id WHERE (author_id= :author_id)",
+            {"author_id": session["user_id"]}).fetchall()
+        print(results)
         return render_template("search.html", results=results)
 
     return render_template("error.html", message="incorrect login info")
@@ -76,9 +83,20 @@ def login_request():
 @app.route("/mymatches")
 def my_matches():
     results = db.execute(
-        "SELECT title, first_name, last_name FROM postings JOIN client ON client.client_id = postings.user_id WHERE author_id=742",
-        {"user_id": session["user_id"]}).fetchall()
+        "SELECT title, first_name, last_name FROM postings JOIN client ON client.client_id = postings.user_id WHERE (author_id= :author_id)",
+        {"author_id": session["user_id"]}).fetchall()
     return render_template("search.html", results=results)
+
+
+
+@app.route("/myPostings")
+def my_postings():
+    results = db.execute(
+        "SELECT title, description FROM postings WHERE (author_id= :author_id)",
+        {"author_id": session["user_id"]}).fetchall()
+    print("Seniors personal postings")
+    print(results)
+    return render_template("myPostings.html", results=results)
 
 @app.route("/search")
 def search():
