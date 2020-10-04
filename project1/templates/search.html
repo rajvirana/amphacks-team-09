@@ -1,29 +1,27 @@
 {% extends "basicpage.html" %}
 
 
-{% block custom_title %} <h2> Matches - People Interested in my skills </h2> {% endblock %}
+{% block custom_title %} <h2> My Matches </h2> {% endblock %}
 
 
 {% block custom_content %}
 
+<h4>The people interested in your postings are listed below. Click confirm to set up a schedule with them! </h4>
 
 {% for item in results %}
 
     <div class="result-box">
         <div class="row align-items-center">
-        <div class="col-2">
-            <img src="{{ url_for('static', filename='assets/blank_image.png') }}" class="centered-img" alt="book-icon">
-        </div>
-        <div class="col-10">
-            <div><h3>{{ item[5] }}</h3></div>
-            <div class="row">
-                <div class="col-6"><h6></h6></div>
-                <div class="col-3"><a href="{{ url_for('confirm', isbn=item.author) }}">
-                    <h4>Confirm</h4></a></div>
-                <div class="col-3"><a href="{{ url_for('delete', isbn=item.author) }}">
-                    <h4>Delete</h4></a></div>
-
+            <div class="col-2">
+                <img src="{{ url_for('static', filename='assets/blank_image.png') }}" class="centered-img" alt="book-icon">
             </div>
+            <div class="col-7">
+                <div><h3>{{ item[0] }}</h3></div>
+                <div class="col-9"><h6>{{ item[1] }} {{ item[2] }}</h6></div>
+            </div>
+            <div class="col-3">
+                <a href="{{ url_for('confirm') }}"><button class="btn btn-primary">Confirm</button></a>
+                <a href="{{ url_for('delete')  }}"><button class="btn btn-primary">Delete</button></a>
             </div>
         </div>
     </div>
