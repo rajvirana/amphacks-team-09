@@ -2,10 +2,20 @@
 
 
 {% block navbar %}
-
-
+<nav class="navbar navbar-light">
+    <a class="navbar-brand" href="{{url_for('my_matches')}}">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" width="30" height="30"
+            class="d-inline-block align-top" alt="logo">
+        Friends for Friends
+    </a>
+    <a class="navbar-link" href="{{url_for('my_matches')}}">
+        My Matches
+    </a>
+    <a class="navbar-link" href="{{url_for('new_post')}}">
+        New Post
+    </a>
+</nav>
 {% endblock %}
-
 
 {% block custom_title %} <h2> My Matches </h2> {% endblock %}
 
@@ -16,21 +26,25 @@
 
 {% for item in results %}
 
-    <div class="result-box">
-        <div class="row align-items-center">
-            <div class="col-2">
-                <img src="{{ url_for('static', filename='assets/blank_image.png') }}" class="centered-img" alt="book-icon">
+<div class="result-box">
+    <div class="row align-items-center">
+        <div class="col-2">
+            <img src="{{ url_for('static', filename='assets/blank_image.png') }}" class="centered-img" alt="book-icon">
+        </div>
+        <div class="col-7">
+            <div>
+                <h3>{{ item[0] }}</h3>
             </div>
-            <div class="col-7">
-                <div><h3>{{ item[0] }}</h3></div>
-                <div class="col-9"><h6>{{ item[1] }} {{ item[2] }}</h6></div>
-            </div>
-            <div class="col-3">
-                <a href="{{ url_for('confirm') }}"><button class="btn btn-primary">Confirm</button></a>
-                <a href="{{ url_for('delete')  }}"><button class="btn btn-primary">Delete</button></a>
+            <div class="col-9">
+                <h6>{{ item[1] }} {{ item[2] }}</h6>
             </div>
         </div>
+        <div class="col-3">
+            <a href="{{ url_for('confirm') }}"><button class="btn btn-primary">Confirm</button></a>
+            <a href="{{ url_for('delete')  }}"><button class="btn btn-primary">Delete</button></a>
+        </div>
     </div>
+</div>
 
 {% endfor %}
 
