@@ -90,7 +90,7 @@ def new_post():
 
 @app.route("/newpost")
 def submit_post():
-    return render_template("success.html")
+    return render_template("newpost.html")
 
 @app.route("/search")
 def confirm():
