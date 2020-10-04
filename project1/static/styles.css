@@ -3,6 +3,15 @@
  font-family: 'Lora', Serif;
 }
 
+/* img {
+    border-radius: 50%;
+    border-width: 5rem;
+} */
+
+body, html {
+    height: 100%;
+}
+
 h1{
     font-size: 36pt;
     font-weight: 700;
@@ -29,6 +38,26 @@ span{
 #spacer{
     height:150px;
 }
+
+.top-container{
+    background-color: #ddf3f5;
+    text-align: center;
+    position: relative;
+}
+
+.header-img{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+}
+
+.time {
+    text-decoration: underline;
+    position: relative;
+}
+
 .line-break{
     color: #F87C68;
     height: 20px;
@@ -42,12 +71,42 @@ span{
     background-color:#344779;
     margin-top:10px;
     margin-bottom:10px;
+    position: absolute;
+    top: 350px;
+    right: 150px;
+    width: 100px;
 }
 
 #green-gradient{
     background-image: linear-gradient(#FFFFFF, #67B586);
     height:140px;
     width:100%;
+}
+
+.logo{
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    width: 16rem;
+    height: auto;
+}
+
+.slogan{
+    top: 300px;
+    right: 50px;
+    font-family: 'Merriweather', serif;
+    position: absolute;
+    color: #fff;
+}
+
+.title{
+    font-size: 5.625rem;
+    top: 200px;
+    right: 20px;
+    font-family: 'Montserrat', verdana, sans-serif;
+    color: #fff;
+    position: absolute;
 }
 
 .navbar{
